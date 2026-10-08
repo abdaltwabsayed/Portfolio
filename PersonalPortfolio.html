@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A personal portfolio website built to showcase my web development projects, skills, and contact information. The page includes a modern dark-themed design, responsive layout, project cards, and interactive animations for a polished user experience. It highlights my work as a full-stack developer and provides quick access to social links and project repositories.">
+    <meta property="og:title" content="Personal Portfolio" />
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="https://www.freecodecamp.org" />
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/PersonalPortfolio.css">
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <ul>
+                <li><a class="nav-link" href="#contact">Contact</a></li>
+                <li><a class="nav-link" href="#project-section">Work</a></li>
+                <li><a class="nav-link" href="#about">About</a></li>
+            </ul>
+            <img src="assets/Be_beautiful.png" alt="كن جميلا ترى الوجود جميلا" class="logo">
+        </nav>
+        <section id="welcome-section">
+            <div class="hero-content">
+                <div class="hero-photo-frame">
+                    <img class="hero-photo" src="assets/My_Picture.png" alt="Portrait of Abdaltwab Okasha Elsheikh">
+                </div>
+                <h1 class="hero-name">Hey I'm Abdaltwab!</h1>
+                <p class="hero-role"><span class="typewriter">a full stack developer</span></p>
+            </div>
+            <a href="#about" class="scroll-cue" aria-label="Scroll to About section"><i
+                    class="fas fa-chevron-down"></i></a>
+        </section>
+    </header>
+    <main>
+        <section id="about">
+            <div class="about-content">
+                <h2 class="about-title">A bit about me</h2>
+                <hr class="about-divider">
+
+                <p class="about-text">
+                    I'm a fifth-year Computer Science Engineering student at Fayoum University, focused on full-stack
+                    web development — HTML, CSS, JavaScript, and React — and currently deepening those skills through
+                    the Digital Egypt Pioneers Initiative (DEPI). I'm also building broader range in Java, Python, C,
+                    and database fundamentals (SQLite).
+                </p>
+
+                <p class="about-project">
+                    One project I'm proud of is <strong>Nahed</strong>, a Telegram bot built with two colleagues to help
+                    university teachers manage assignments and file sharing with students. I designed and built the
+                    Login, Registration, and Assignment features in Java.
+                </p>
+
+                <h3 class="about-skills-title">What I bring to a team</h3>
+                <ul class="about-skills">
+                    <li>Collaboration</li>
+                    <li>Active listening</li>
+                    <li>Patience under pressure</li>
+                    <li>Time management</li>
+                </ul>
+            </div>
+        </section>
+        <section id="education" class="reveal">
+            <div class="education-content">
+                <h2 class="section-title">Education</h2>
+                <hr class="section-divider">
+                <div class="education-card">
+                    <h3>B.Sc. Computer Science Engineering (CSE)</h3>
+                    <p>Faculty of Engineering, Fayoum University</p>
+                    <span class="status-badge in-progress">Fifth Year — In Progress</span>
+                </div>
+            </div>
+        </section>
+        <section id="learning" class="reveal">
+            <div class="learning-content">
+                <h2 class="section-title">Training &amp; Learning</h2>
+                <hr class="section-divider">
+                <div class="learning-grid">
+                    <div class="learning-card">
+                        <h3>Digital Egypt Pioneers Initiative (DEPI)</h3>
+                        <p>A national digital-skills training program launched by Egypt's Ministry of Communications and
+                            Information Technology. Attending technical and non-technical sessions four days a week,
+                            in-person and online, and developing React and modern web development skills.</p>
+                        <span class="status-badge in-progress">In Progress</span>
+                    </div>
+                    <div class="learning-card">
+                        <h3>CS50: Introduction to Computer Science</h3>
+                        <p>Harvard University, online. My first introduction to programming — started in 2023, completed in 2024. Built a foundation in core programming and computer science concepts.</p>
+                        <span class="status-badge completed">Completed</span>
+                    </div>
+                    <div class="learning-card">
+                        <h3>CS50: Introduction to Databases</h3>
+                        <p>Harvard University, online. Studied database fundamentals and SQLite.</p>
+                        <span class="status-badge completed">Completed</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="reveal">
+            <div class="skills-content">
+                <h2 class="section-title">Technical Skills</h2>
+                <hr class="section-divider">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Front-End</h3>
+                        <ul class="skill-chips">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>React</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <ul class="skill-chips">
+                            <li>Java</li>
+                            <li>Python</li>
+                            <li>C</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Databases</h3>
+                        <ul class="skill-chips">
+                            <li>SQLite</li>
+                            <li>Relational DB Fundamentals</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Networking</h3>
+                        <ul class="skill-chips">
+                            <li>CCNA (in progress)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools &amp; IDEs</h3>
+                        <ul class="skill-chips">
+                            <li>VS Code</li>
+                            <li>PyCharm</li>
+                            <li>IntelliJ IDEA</li>
+                            <li>Git/GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="languages" class="reveal">
+            <div class="languages-content">
+                <h2 class="section-title">Languages</h2>
+                <hr class="section-divider">
+                <div class="languages-grid">
+                    <div class="language-card">
+                        <h3>Arabic</h3>
+                        <p>Native</p>
+                    </div>
+                    <div class="language-card">
+                        <h3>English</h3>
+                        <p>Proficient (technical/academic)</p>
+                    </div>
+                    <div class="language-card">
+                        <h3>Japanese</h3>
+                        <p>N4 level, in progress</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="project-section">
+            <h1>These are some of my projects
+                <hr>
+            </h1>
+            <div class="projects-grid">
+                <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/HouseMockingDrawing.html"
+                    class="project project-title" target="_blank">
+                    <img src="assets/HouseDraw.png" alt="">
+                    <p class="project-title"><span>&lt;</span> House Mocking Drawing <span>/&gt;</span></p>
+                </a>
+                <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/calculator/calculator.html"
+                    class="project project-title" target="_blank">
+                    <img src="assets/Calculator.png" alt="">
+                    <p class="project-title"><span>&lt;</span> Calculator <span>/&gt;</span></p>
+                </a>
+                <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/rockPaperScissors/rockPaperScissors.html"
+                    class="project project-title" target="_blank">
+                    <img src="assets/Rock-Paper-Scissors-Game.png" alt="">
+                    <p class="project-title"><span>&lt;</span> Rock Paper Scissors Game <span>/&gt;</span></p>
+                </a>
+                <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/stopwatch/stopwatch.html"
+                    class="project project-title" target="_blank">
+                    <img src="assets/Stopwatch.png" alt="">
+                    <p class="project-title"><span>&lt;</span> Stopwatch <span>/&gt;</span></p>
+                </a>
+                <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/timeInParis/timeInParis.html"
+                    class="project project-title" target="_blank">
+                    <img src="assets/Time-In-Paris.png" alt="">
+                    <p class="project-title"><span>&lt;</span> Time In Paris <span>/&gt;</span></p>
+                </a>
+                <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/pokemon/pokemon.html"
+                    class="project project-title" target="_blank">
+                    <img src="assets/Pokemon.png" alt="">
+                    <p class="project-title"><span>&lt;</span> Pokemon Fetcher <span>/&gt;</span></p>
+                </a>
+            </div>
+            <a id="show-all-button" href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/">Show All <i
+                    class="fas fa-chevron-right"></i></a>
+        </section>
+    </main>
+    <footer>
+        <section id="contact">
+            <h1>Let's work together...</h1>
+            <p>How do you take your coffee?</p>
+            <div class="contact-links">
+                <a href="https://github.com/abdaltwabsayed/" target="_blank"><i class="fab fa-github"></i> Github</a>
+                <a href="https://www.linkedin.com/in/abdaltwab-sayed-fullstackdeveloper" target="_blank"><i class="fab fa-linkedin"></i>
+                    LinkedIn</a>
+                <a href="https://www.facebook.com/abdaltwab.sayed" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://x.com/AbdeltwabSayed1" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="mailto:abdaltwabsayed89@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                <a href="tel:+201119318089"><i class="fas fa-phone"></i> Phone</a>
+            </div>
+        </section>
+        <hr>
+        <section class="copywrites">
+            <p>
+                &COPY;Created by <a id="profile-link" href="https://github.com/abdaltwabsayed/">me</a> ☺️
+            </p>
+            <div class="poem">
+                <h3 class="right">وأفضل الناس مابين الورى رجل ”</h3>
+                <h3 class="left">تقضى علي يده للناس حاجات</h3>
+                <h3 class="right">لاتمنعن يد المعروف عن أحد</h3>
+                <h3 class="left">مادمت مقتدرا فالسعد تارات</h3>
+                <h3 class="right">واشكر فضائل صنع الله إذ جعلت</h3>
+                <h3 class="left">إليك لا لك عند الناس حاجات</h3>
+                <h3 class="right">قد مات قوم وما ماتت مكارمهم</h3>
+                <h3 class="left">“ وعاش قوم وهم في الناس أموات</h3>
+            </div>
+        </section>
+    </footer>
+
+    <script>
+        const projects = document.querySelectorAll('.project');
+
+        const revealProjects = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    entry.target.classList.remove('hidden');
+                } else {
+                    entry.target.classList.remove('in-view');
+                    entry.target.classList.add('hidden');
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        projects.forEach((project) => {
+            project.classList.add('hidden');
+            revealProjects.observe(project);
+        });
+
+        // Separate reveal system for the new content sections (Education, Learning,
+        // Skills, Languages). Kept independent from the .project/.hidden/.in-view
+        // logic above so that system is never touched.
+        const revealSections = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                entry.target.classList.toggle('section-visible', entry.isIntersecting);
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        revealSections.forEach((section) => revealObserver.observe(section));
+    </script>
+</body>
+
+</html>
