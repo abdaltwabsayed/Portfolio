@@ -13,11 +13,15 @@
     --main-blue: #45567d;
     --main-gray: #303841;
     --main-black: #181719;
+    /* Added: lighter red for text on dark surfaces, and fixed white for text on red/blue */
+    --accent-soft: #f5808f;
+    --text-on-accent: #ffffff;
 }
 
 html {
     overflow-x: clip;
     overflow-anchor: none;
+    scroll-padding-top: 5.5rem;
 }
 
 body {
@@ -73,16 +77,19 @@ body {
 }
 
 .nav-link {
-    font-size: 2rem;
-    padding: 30px;
+    font-size: 1.2rem;
+    padding: 1.35rem 1.1rem;
+    color: var(--text-on-accent);
     transition: all 0.3s ease;
 }
 
 .logo {
-    height: 100px;
+    height: 56px;
     object-fit: cover;
     border-radius: 50%;
-    margin-left: 10px;
+    margin: 8px 0 8px 10px;
+    /* black glyph -> white, so it reads cleanly on the red bar */
+    filter: brightness(0) invert(1);
 }
 
 /* Hover effect replaces infinite float animation */
@@ -119,7 +126,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--main-black);
+    background: var(--main-blue);
     box-shadow: 0 0 20px 4px rgba(190, 49, 68, 0.55), 0 0 0 2px rgba(240, 240, 240, 0.15);
     animation: photoGlow 3.5s ease-in-out infinite;
 }
@@ -135,7 +142,7 @@ body {
 
 /* Hero name: animated gradient sweep is the site's single "big" motion moment */
 .hero-name {
-    background-image: linear-gradient(90deg, var(--main-white) 0%, var(--main-red) 50%, var(--main-white) 100%);
+    background-image: linear-gradient(90deg, var(--main-white) 0%, var(--accent-soft) 50%, var(--main-white) 100%);
     background-size: 220% auto;
     background-clip: text;
     -webkit-background-clip: text;
@@ -155,11 +162,11 @@ body {
     white-space: nowrap;
     vertical-align: bottom;
     width: 22ch;
-    color: var(--main-red);
-    font-weight: 200;
+    color: var(--accent-soft);
+    font-weight: 500;
     font-style: italic;
     font-size: 3rem;
-    border-right: 3px solid var(--main-red);
+    border-right: 3px solid var(--accent-soft);
     animation:
         typewriterReveal 2s steps(22, end) 0.6s forwards,
         typewriterCursor 0.75s step-end infinite;
@@ -192,7 +199,7 @@ a {
 }
 
 .about-content {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -209,6 +216,11 @@ a {
     background-color: var(--main-gray);
     border: none;
     margin: 0 0 2.5rem;
+}
+
+.about-text,
+.about-project {
+    max-width: 68ch;
 }
 
 .about-text {
@@ -302,11 +314,11 @@ img {
 
 .section-divider {
     width: 100%;
-    height: 2px;
+    height: 3px;
     background-color: var(--main-red);
     border: none;
     margin: 0 0 2.5rem;
-    opacity: 0.5;
+    opacity: 0.85;
 }
 
 .status-badge {
@@ -325,6 +337,7 @@ img {
 /* Gentle pulse only on "in progress" items — motion with a purpose */
 .status-badge.in-progress {
     background-color: var(--main-red);
+    color: var(--text-on-accent);
     animation: badgePulse 2.2s ease-in-out infinite;
 }
 
@@ -337,7 +350,7 @@ img {
 }
 
 .education-content {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -354,11 +367,13 @@ img {
 .education-card h3 {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
+    color: var(--text-on-accent);
 }
 
 .education-card p {
     margin-bottom: 1rem;
-    opacity: 0.85;
+    opacity: 0.9;
+    color: var(--text-on-accent);
 }
 
 #education.section-visible .education-card {
@@ -373,7 +388,7 @@ img {
 }
 
 .learning-content {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -397,6 +412,7 @@ img {
 }
 
 .learning-card p {
+    max-width: 75ch;
     line-height: 1.6;
     margin-bottom: 1rem;
     opacity: 0.85;
@@ -445,6 +461,7 @@ img {
 .skill-category h3 {
     font-size: 1.15rem;
     margin-bottom: 1rem;
+    color: var(--text-on-accent);
 }
 
 #skills.section-visible .skill-category {
@@ -501,7 +518,7 @@ img {
 }
 
 .languages-content {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -547,24 +564,28 @@ img {
     justify-content: space-evenly;
     align-items: center;
     gap: 20px;
+    padding: 6rem 1rem 4rem;
     background-color: var(--main-blue);
     text-align: center;
 }
 
-#project-section>h1 {
+#project-section>.projects-heading {
     font-size: 3rem;
-    padding: 20px;
+    font-weight: 700;
+    padding: 20px 20px 0.8rem;
+    margin-bottom: 1rem;
     width: fit-content;
+    border-bottom: 2px solid var(--main-white);
     animation: titleFade 1s ease forwards;
 }
 
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     text-align: center;
-    gap: 30px;
+    gap: 40px 30px;
     padding: 0 1rem;
 }
 
@@ -592,8 +613,12 @@ img {
 }
 
 .project>p {
-    padding: 2rem;
-    width: 62%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 7.5rem;
+    padding: 1.5rem;
+    width: 70%;
     font-size: 2rem;
     background-color: var(--main-gray);
     justify-self: center;
@@ -652,18 +677,19 @@ footer {
 }
 
 #contact {
-    height: 80vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 2rem;
+    padding: 4rem 2rem;
     text-align: center;
     font-size: 2.3rem;
     animation: titleFade 1s ease forwards;
 }
 
-#contact h1 {
+#contact h2 {
+    font-size: 2em;
     animation: titleFade 1s ease forwards;
 }
 
@@ -674,11 +700,11 @@ footer {
 
 .contact-links {
     display: flex;
-    justify-content: space-evenly;
-    font-size: 1.5rem;
-    max-width: 980px;
-    margin-top: 4rem;
-    gap: 20px;
+    justify-content: center;
+    font-size: 1.25rem;
+    max-width: 1100px;
+    margin-top: 3rem;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
@@ -990,6 +1016,7 @@ footer {
         --main-blue: #586d9d;
         --main-gray: #eef2f7;
         --main-black: #f8fafc;
+        --accent-soft: #a8283e;
     }
 
     body {
@@ -1016,8 +1043,22 @@ footer {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    /* 6-column track: 3 cards on top row, 2 wider cards below - no empty slot */
     .skills-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .skill-category:nth-child(-n+3) {
+        grid-column: span 2;
+    }
+
+    .skill-category:nth-child(n+4) {
+        grid-column: span 3;
+    }
+
+    /* Current program (DEPI) gets a full-width row; the two CS50 cards sit below it */
+    .learning-card:first-child {
+        grid-column: 1 / -1;
     }
 
     .languages-grid {
@@ -1041,19 +1082,19 @@ footer {
     }
 
     .nav-link {
-        font-size: 1.05rem;
-        padding: 14px 10px;
+        font-size: 1rem;
+        padding: 1.05rem 0.6rem;
     }
 
     .logo {
-        height: 52px;
+        height: 44px;
         margin-left: 6px;
     }
 
     #welcome-section {
         height: auto;
         min-height: 100vh;
-        padding: 100px 1.5rem 3rem;
+        padding: 88px 1.5rem 3rem;
     }
 }
 
@@ -1074,5 +1115,31 @@ footer {
         width: 120px;
         height: 120px;
         margin-bottom: 1.5rem;
+    }
+}
+
+/* Skills: 2 columns on tablets, last card spans the row so there is no gap */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skill-category:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Contact links: even rows instead of 5 + 1 orphan */
+@media (max-width: 1100px) {
+    .contact-links {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        justify-content: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .contact-links {
+        grid-template-columns: repeat(2, auto);
     }
 }
