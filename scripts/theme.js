@@ -4,6 +4,10 @@
     var root = document.documentElement;
     var KEY = 'portfolio-theme';
     var systemLight = window.matchMedia('(prefers-color-scheme: light)');
+    var LABELS = {
+        en: { light: 'Switch to light mode', dark: 'Switch to dark mode' },
+        ar: { light: 'التبديل إلى الوضع الفاتح', dark: 'التبديل إلى الوضع الداكن' }
+    };
 
     // Runs in <head>, before first paint, so a saved choice never flashes the wrong theme.
     try {
@@ -15,12 +19,12 @@
         return root.getAttribute('data-theme') || (systemLight.matches ? 'light' : 'dark');
     }
 
+    // The sun/moon icon itself is switched by CSS; this only keeps the label in sync.
     function syncButton() {
         var btn = document.getElementById('theme-toggle');
         if (!btn) return;
-        var isLight = current() === 'light';
-        var label = isLight ? 'Switch to dark mode' : 'Switch to light mode';
-        btn.querySelector('i').className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+        var set = LABELS[root.lang === 'ar' ? 'ar' : 'en'];
+        var label = current() === 'light' ? set.dark : set.light;
         btn.setAttribute('aria-label', label);
         btn.title = label;
     }
@@ -37,5 +41,6 @@
         });
     });
 
+    document.addEventListener('langchange', syncButton);
     if (systemLight.addEventListener) systemLight.addEventListener('change', syncButton);
 })();

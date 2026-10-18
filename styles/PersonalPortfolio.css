@@ -30,7 +30,7 @@ body {
     overflow-anchor: none;
     margin: 0;
     background-color: var(--main-white);
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Poppins', 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--main-white);
 }
 
@@ -48,7 +48,7 @@ body {
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap-reverse;
+    flex-wrap: nowrap;
     position: fixed;
     z-index: 10;
     width: 100%;
@@ -62,22 +62,26 @@ body {
 #navbar ul {
     display: flex;
     flex-direction: row-reverse;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    align-items: stretch;
     margin: 0;
-    margin-right: 2rem;
-    height: 100%;
+    margin-inline-end: 2rem;
+    padding: 0;
+    align-self: stretch;
     list-style: none;
 }
 
 #navbar li {
     display: flex;
-    align-items: center;
-    height: 100%;
+    align-items: stretch;
     padding: 0;
 }
 
 .nav-link {
+    display: flex;
+    align-items: center;
     font-size: 1.2rem;
+    line-height: 1;
     padding: 1.35rem 1.1rem;
     color: var(--text-on-accent);
     transition: all 0.3s ease;
@@ -87,7 +91,8 @@ body {
     height: 56px;
     object-fit: cover;
     border-radius: 50%;
-    margin: 8px 0 8px 10px;
+    margin: 8px 0;
+    margin-inline-start: 10px;
     /* black glyph -> white, so it reads cleanly on the red bar */
     filter: brightness(0) invert(1);
 }
@@ -166,9 +171,9 @@ body {
     font-weight: 500;
     font-style: italic;
     font-size: 3rem;
-    border-right: 3px solid var(--accent-soft);
+    border-inline-end: 3px solid var(--accent-soft);
     animation:
-        typewriterLoop 9s steps(22, end) infinite,
+        typewriterLoop 9s steps(var(--tw-n, 22), end) infinite,
         typewriterCursor 0.75s step-end infinite;
     width: 0;
 }
@@ -294,7 +299,7 @@ a {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-span {
+.project>p span {
     display: none;
 }
 
@@ -356,9 +361,9 @@ img {
 
 .education-card {
     background-color: var(--main-blue);
-    border-left: 6px solid var(--main-red);
+    border-inline-start: 6px solid var(--main-red);
     padding: 2rem;
-    text-align: left;
+    text-align: start;
     opacity: 0;
     transform: perspective(900px) rotateY(-85deg);
     transform-origin: left center;
@@ -401,7 +406,7 @@ img {
 .learning-card {
     background-color: var(--main-black);
     padding: 1.75rem;
-    text-align: left;
+    text-align: start;
     opacity: 0;
     transform: translateY(50px);
 }
@@ -448,7 +453,7 @@ img {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    text-align: left;
+    text-align: start;
 }
 
 .skill-category {
@@ -665,7 +670,7 @@ img {
 #show-all-button>i {
     transition: transform 0.3s ease;
     display: inline-block;
-    margin-left: 0.5rem;
+    margin-inline-start: 0.5rem;
 }
 
 #show-all-button:hover>i {
@@ -909,18 +914,11 @@ footer {
 }
 
 /* Hero: typewriter reveal of the subtitle */
-/* type -> hold -> erase -> pause, forever. The Alt copy lets :hover restart it. */
+/* type -> hold -> erase -> pause, forever. main.js sets --tw-w (text width) and --tw-n (letters). */
 @keyframes typewriterLoop {
     0% { width: 0; }
-    35% { width: 22ch; }
-    75% { width: 22ch; }
-    90%, 100% { width: 0; }
-}
-
-@keyframes typewriterLoopAlt {
-    0% { width: 0; }
-    35% { width: 22ch; }
-    75% { width: 22ch; }
+    35% { width: var(--tw-w, 22ch); }
+    75% { width: var(--tw-w, 22ch); }
     90%, 100% { width: 0; }
 }
 
@@ -1103,7 +1101,7 @@ footer {
 
     #navbar ul {
         flex-wrap: nowrap;
-        margin-right: 0.75rem;
+        margin-inline-end: 0.75rem;
     }
 
     .nav-link {
@@ -1113,7 +1111,7 @@ footer {
 
     .logo {
         height: 44px;
-        margin-left: 6px;
+        margin-inline-start: 6px;
     }
 
     #welcome-section {
@@ -1174,9 +1172,9 @@ footer {
 /* Reduced motion: show the subtitle fully instead of an empty typewriter */
 @media (prefers-reduced-motion: reduce) {
     .hero-role .typewriter {
-        width: 22ch;
+        width: auto;
         animation: none;
-        border-right-color: transparent;
+        border-inline-end-color: transparent;
     }
 }
 
@@ -1239,13 +1237,12 @@ footer {
     scale: 1.08;
 }
 
-.hero-name:hover {
-    animation-duration: 1.4s;
+.hero-name {
+    transition: scale 0.3s ease;
 }
 
-/* hovering the role retypes it from the start */
-.hero-role:hover .typewriter {
-    animation-name: typewriterLoopAlt, typewriterCursor;
+.hero-name:hover {
+    scale: 1.03;
 }
 
 .project>p:hover,
@@ -1305,9 +1302,13 @@ footer {
 /* ---- Navbar icon button (theme toggle) ---- */
 .icon-btn {
     display: flex;
+    align-self: stretch;
     align-items: center;
     justify-content: center;
-    padding: 1.35rem 1rem;
+    line-height: 1;
+    padding: 0 1rem;
+    gap: 0.4rem;
+    font-family: inherit;
     background: none;
     border: 0;
     color: var(--text-on-accent);
@@ -1316,16 +1317,8 @@ footer {
     transition: transform 0.3s ease;
 }
 
-.icon-btn i {
-    transition: transform 0.5s ease;
-}
-
 #navbar li:hover .icon-btn {
-    transform: translateY(-4px);
-}
-
-#navbar li:hover .icon-btn i {
-    transform: rotate(25deg);
+    transform: none;
 }
 
 .nav-link:focus-visible,
@@ -1337,6 +1330,101 @@ footer {
 
 @media (max-width: 768px) {
     .icon-btn {
-        padding: 1.05rem 0.7rem;
+        padding: 0 0.7rem;
     }
+}
+
+/* ---- Navbar SVG icons (theme + language) ---- */
+.icon-btn svg {
+    width: 1.35rem;
+    height: 1.35rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.5s ease;
+}
+
+#navbar li:hover .icon-btn svg {
+    transform: rotate(25deg);
+}
+
+/* shows the mode you would switch TO: sun while dark, moon while light */
+.theme-icon-moon {
+    display: none;
+}
+
+:root[data-theme="light"] .theme-icon-sun {
+    display: none;
+}
+
+:root[data-theme="light"] .theme-icon-moon {
+    display: block;
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .theme-icon-sun {
+        display: none;
+    }
+
+    :root:not([data-theme="dark"]) .theme-icon-moon {
+        display: block;
+    }
+}
+
+.lang-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+@media (max-width: 480px) {
+    .lang-label {
+        display: none;
+    }
+}
+
+/* ================= Round 3: Arabic / right-to-left ================= */
+html[lang="ar"] .hero-role .typewriter {
+    font-style: normal;
+}
+
+html[dir="rtl"] .education-card {
+    transform-origin: right center;
+    transform: perspective(900px) rotateY(85deg);
+}
+
+html[dir="rtl"] #education.section-visible .education-card {
+    animation-name: cardFlipInRtl;
+}
+
+html[dir="rtl"] #about.section-visible .about-text,
+html[dir="rtl"] #about.section-visible .about-project,
+html[dir="rtl"] #contact.section-visible p {
+    animation-name: textSlideInRtl;
+}
+
+html[dir="rtl"] #show-all-button>i {
+    scale: -1 1;
+}
+
+html[dir="rtl"] #show-all-button:hover>i {
+    animation-name: iconSlideRtl;
+}
+
+@keyframes cardFlipInRtl {
+    0% { opacity: 0; transform: perspective(900px) rotateY(85deg); }
+    60% { opacity: 1; }
+    100% { opacity: 1; transform: perspective(900px) rotateY(0deg); }
+}
+
+@keyframes textSlideInRtl {
+    0% { opacity: 0; transform: translateX(20px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes iconSlideRtl {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-8px); }
+    100% { transform: translateX(0); }
 }

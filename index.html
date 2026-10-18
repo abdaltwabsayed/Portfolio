@@ -15,9 +15,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,700;1,200;1,400;1,500&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,700;1,200;1,400;1,500&family=Cairo:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="styles/PersonalPortfolio.css">
     <script src="scripts/theme.js"></script>
+    <script src="scripts/i18n.js"></script>
 </head>
 
 <body>
@@ -25,96 +26,98 @@
         <nav id="navbar">
             <ul>
                 <li><button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch to light mode"
-                        title="Switch to light mode"><i class="fas fa-sun" aria-hidden="true"></i></button></li>
-                <li><a class="nav-link" href="#contact">Contact</a></li>
-                <li><a class="nav-link" href="#project-section">Work</a></li>
-                <li><a class="nav-link" href="#about">About</a></li>
+                        title="Switch to light mode"><svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button></li>
+                <li><button id="lang-toggle" class="icon-btn" type="button" aria-label="Switch to Arabic"
+                        title="Switch to Arabic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lang-label">عربي</span></button></li>
+                <li><a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a></li>
+                <li><a class="nav-link" href="#project-section" data-i18n="nav.work">Work</a></li>
+                <li><a class="nav-link" href="#about" data-i18n="nav.about">About</a></li>
             </ul>
             <img src="assets/Be_beautiful.png" alt="كن جميلا ترى الوجود جميلا" class="logo">
         </nav>
         <section id="welcome-section">
             <div class="hero-content">
                 <div class="hero-photo-frame">
-                    <img class="hero-photo" src="assets/My_Picture.png" alt="Portrait of Abdaltwab Okasha Elsheikh">
+                    <img class="hero-photo" src="assets/My_Picture.png" alt="Portrait of Abdaltwab Okasha Elsheikh" data-i18n-attr="alt:hero.alt">
                 </div>
-                <h1 class="hero-name">Hey I'm Abdaltwab!</h1>
-                <p class="hero-role"><span class="typewriter">a full stack developer</span></p>
+                <h1 class="hero-name" data-i18n="hero.name">Hey I'm Abdaltwab!</h1>
+                <p class="hero-role"><span class="typewriter" data-i18n="hero.role">a full stack developer</span></p>
             </div>
-            <a href="#about" class="scroll-cue" aria-label="Scroll to About section"><i
+            <a href="#about" class="scroll-cue" aria-label="Scroll to About section" data-i18n-attr="aria-label:hero.cue"><i
                     class="fas fa-chevron-down"></i></a>
         </section>
     </header>
     <main>
         <section id="about" class="reveal">
             <div class="about-content">
-                <h2 class="about-title">A bit about me</h2>
+                <h2 class="about-title" data-i18n="about.title">A bit about me</h2>
                 <hr class="about-divider">
 
-                <p class="about-text">
+                <p class="about-text" data-i18n="about.text">
                     I'm a fifth-year Computer Science Engineering student at Fayoum University, focused on full-stack
                     web development — HTML, CSS, JavaScript, and React — and currently deepening those skills through
                     the Digital Egypt Pioneers Initiative (DEPI). I'm also building broader range in Java, Python, C,
                     and database fundamentals (SQLite).
                 </p>
 
-                <p class="about-project">
+                <p class="about-project" data-i18n="about.project">
                     One project I'm proud of is <strong>Nahed</strong>, a Telegram bot built with two colleagues to help
                     university teachers manage assignments and file sharing with students. I designed and built the
                     Login, Registration, and Assignment features in Java.
                 </p>
 
-                <h3 class="about-skills-title">What I bring to a team</h3>
+                <h3 class="about-skills-title" data-i18n="about.skillsTitle">What I bring to a team</h3>
                 <ul class="about-skills">
-                    <li>Collaboration</li>
-                    <li>Active listening</li>
-                    <li>Patience under pressure</li>
-                    <li>Time management</li>
+                    <li data-i18n="about.s1">Collaboration</li>
+                    <li data-i18n="about.s2">Active listening</li>
+                    <li data-i18n="about.s3">Patience under pressure</li>
+                    <li data-i18n="about.s4">Time management</li>
                 </ul>
             </div>
         </section>
         <section id="education" class="reveal">
             <div class="education-content">
-                <h2 class="section-title">Education</h2>
+                <h2 class="section-title" data-i18n="edu.title">Education</h2>
                 <hr class="section-divider">
                 <div class="education-card">
-                    <h3>B.Sc. Computer Science Engineering (CSE)</h3>
-                    <p>Faculty of Engineering, Fayoum University</p>
-                    <span class="status-badge in-progress">Fifth Year — In Progress</span>
+                    <h3 data-i18n="edu.degree">B.Sc. Computer Science Engineering (CSE)</h3>
+                    <p data-i18n="edu.faculty">Faculty of Engineering, Fayoum University</p>
+                    <span class="status-badge in-progress" data-i18n="edu.badge">Fifth Year — In Progress</span>
                 </div>
             </div>
         </section>
         <section id="learning" class="reveal">
             <div class="learning-content">
-                <h2 class="section-title">Training &amp; Learning</h2>
+                <h2 class="section-title" data-i18n="learn.title">Training &amp; Learning</h2>
                 <hr class="section-divider">
                 <div class="learning-grid">
                     <div class="learning-card">
-                        <h3>Digital Egypt Pioneers Initiative (DEPI)</h3>
-                        <p>A national digital-skills training program launched by Egypt's Ministry of Communications and
+                        <h3 data-i18n="learn.depi.h">Digital Egypt Pioneers Initiative (DEPI)</h3>
+                        <p data-i18n="learn.depi.p">A national digital-skills training program launched by Egypt's Ministry of Communications and
                             Information Technology. Attending technical and non-technical sessions four days a week,
                             in-person and online, and developing React and modern web development skills.</p>
-                        <span class="status-badge in-progress">In Progress</span>
+                        <span class="status-badge in-progress" data-i18n="status.inprogress">In Progress</span>
                     </div>
                     <div class="learning-card">
-                        <h3>CS50: Introduction to Computer Science</h3>
-                        <p>Harvard University, online. My first introduction to programming — started in 2023, completed in 2024. Built a foundation in core programming and computer science concepts.</p>
-                        <span class="status-badge completed">Completed</span>
+                        <h3 data-i18n="learn.cs.h">CS50: Introduction to Computer Science</h3>
+                        <p data-i18n="learn.cs.p">Harvard University, online. My first introduction to programming — started in 2023, completed in 2024. Built a foundation in core programming and computer science concepts.</p>
+                        <span class="status-badge completed" data-i18n="status.completed">Completed</span>
                     </div>
                     <div class="learning-card">
-                        <h3>CS50: Introduction to Databases</h3>
-                        <p>Harvard University, online. Studied database fundamentals and SQLite.</p>
-                        <span class="status-badge completed">Completed</span>
+                        <h3 data-i18n="learn.db.h">CS50: Introduction to Databases</h3>
+                        <p data-i18n="learn.db.p">Harvard University, online. Studied database fundamentals and SQLite.</p>
+                        <span class="status-badge completed" data-i18n="status.completed">Completed</span>
                     </div>
                 </div>
             </div>
         </section>
         <section id="skills" class="reveal">
             <div class="skills-content">
-                <h2 class="section-title">Technical Skills</h2>
+                <h2 class="section-title" data-i18n="skills.title">Technical Skills</h2>
                 <hr class="section-divider">
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h3>Front-End</h3>
+                        <h3 data-i18n="skills.front">Front-End</h3>
                         <ul class="skill-chips">
                             <li>HTML5</li>
                             <li>CSS3</li>
@@ -123,7 +126,7 @@
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h3>Programming Languages</h3>
+                        <h3 data-i18n="skills.prog">Programming Languages</h3>
                         <ul class="skill-chips">
                             <li>Java</li>
                             <li>Python</li>
@@ -131,20 +134,20 @@
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h3>Databases</h3>
+                        <h3 data-i18n="skills.db">Databases</h3>
                         <ul class="skill-chips">
                             <li>SQLite</li>
-                            <li>Relational DB Fundamentals</li>
+                            <li data-i18n="skills.reldb">Relational DB Fundamentals</li>
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h3>Networking</h3>
+                        <h3 data-i18n="skills.net">Networking</h3>
                         <ul class="skill-chips">
-                            <li>CCNA (in progress)</li>
+                            <li data-i18n="skills.ccna">CCNA (in progress)</li>
                         </ul>
                     </div>
                     <div class="skill-category">
-                        <h3>Tools &amp; IDEs</h3>
+                        <h3 data-i18n="skills.tools">Tools &amp; IDEs</h3>
                         <ul class="skill-chips">
                             <li>VS Code</li>
                             <li>PyCharm</li>
@@ -157,26 +160,26 @@
         </section>
         <section id="languages" class="reveal">
             <div class="languages-content">
-                <h2 class="section-title">Languages</h2>
+                <h2 class="section-title" data-i18n="lang.title">Languages</h2>
                 <hr class="section-divider">
                 <div class="languages-grid">
                     <div class="language-card">
-                        <h3>Arabic</h3>
-                        <p>Native</p>
+                        <h3 data-i18n="lang.ar.h">Arabic</h3>
+                        <p data-i18n="lang.ar.p">Native</p>
                     </div>
                     <div class="language-card">
-                        <h3>English</h3>
-                        <p>Proficient (technical/academic)</p>
+                        <h3 data-i18n="lang.en.h">English</h3>
+                        <p data-i18n="lang.en.p">Proficient (technical/academic)</p>
                     </div>
                     <div class="language-card">
-                        <h3>Japanese</h3>
-                        <p>N4 level, in progress</p>
+                        <h3 data-i18n="lang.ja.h">Japanese</h3>
+                        <p data-i18n="lang.ja.p">N4 level, in progress</p>
                     </div>
                 </div>
             </div>
         </section>
         <section id="project-section" class="reveal">
-            <h2 class="projects-heading">These are some of my projects</h2>
+            <h2 class="projects-heading" data-i18n="work.title">These are some of my projects</h2>
             <div class="projects-grid">
                 <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/HouseMockingDrawing.html"
                     class="project project-title" target="_blank">
@@ -209,34 +212,34 @@
                     <p class="project-title"><span>&lt;</span> Pokemon Fetcher <span>/&gt;</span></p>
                 </a>
             </div>
-            <a id="show-all-button" href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/">Show All <i
+            <a id="show-all-button" href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/"><span data-i18n="work.all">Show All</span> <i
                     class="fas fa-chevron-right"></i></a>
         </section>
     </main>
     <footer>
         <section id="contact" class="reveal">
-            <h2>Let's work together...</h2>
-            <p>How do you take your coffee?</p>
+            <h2 data-i18n="contact.title">Let's work together...</h2>
+            <p data-i18n="contact.sub">How do you take your coffee?</p>
             <div class="contact-links">
                 <a href="https://github.com/abdaltwabsayed/" target="_blank"><i class="fab fa-github"></i> Github</a>
                 <a href="https://www.linkedin.com/in/abdaltwab-sayed-fullstackdeveloper" target="_blank"><i class="fab fa-linkedin"></i>
                     LinkedIn</a>
                 <a href="https://www.facebook.com/abdaltwab.sayed" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
                 <a href="https://x.com/AbdeltwabSayed1" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-                <a href="mailto:abdaltwabsayed89@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-                <a href="tel:+201119318089"><i class="fas fa-phone"></i> Phone</a>
+                <a href="mailto:abdaltwabsayed89@gmail.com"><i class="fas fa-envelope"></i> <span data-i18n="contact.email">Email</span></a>
+                <a href="tel:+201119318089"><i class="fas fa-phone"></i> <span data-i18n="contact.phone">Phone</span></a>
             </div>
         </section>
         <hr>
         <section class="copywrites">
-            <p>
+            <p data-i18n="footer.copy">
                 &COPY;Created by <a id="profile-link" href="https://github.com/abdaltwabsayed/">me</a> ☺️
             </p>
-            <div class="poem">
-                <h3 class="right">وأفضل الناس مابين الورى رجل ”</h3>
-                <h3 class="left">تقضى علي يده للناس حاجات</h3>
-                <h3 class="right">لاتمنعن يد المعروف عن أحد</h3>
-                <h3 class="left">مادمت مقتدرا فالسعد تارات</h3>
+            <div class="poem" dir="ltr">
+                <h3 class="right">وأفضل الناس ما بين الورى رجل ”</h3>
+                <h3 class="left">تقضى على يده للناس حاجات</h3>
+                <h3 class="right">لا تمنعن يد المعروف عن أحد</h3>
+                <h3 class="left">ما دمت مقتدرا فالسعد تارات</h3>
                 <h3 class="right">واشكر فضائل صنع الله إذ جعلت</h3>
                 <h3 class="left">إليك لا لك عند الناس حاجات</h3>
                 <h3 class="right">قد مات قوم وما ماتت مكارمهم</h3>
