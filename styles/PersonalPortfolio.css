@@ -1,6 +1,3 @@
-/* Load Poppins font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -16,6 +13,9 @@
     /* Added: lighter red for text on dark surfaces, and fixed white for text on red/blue */
     --accent-soft: #f5808f;
     --text-on-accent: #ffffff;
+    --radius: 14px;
+    /* one knob for every entrance animation: 1 = original speed, higher = slower */
+    --anim-scale: 1.6;
 }
 
 html {
@@ -168,7 +168,7 @@ body {
     font-size: 3rem;
     border-right: 3px solid var(--accent-soft);
     animation:
-        typewriterReveal 2s steps(22, end) 0.6s forwards,
+        typewriterLoop 9s steps(22, end) infinite,
         typewriterCursor 0.75s step-end infinite;
     width: 0;
 }
@@ -207,7 +207,7 @@ a {
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0 0 1.5rem;
-    animation: titleFade 1s ease forwards;
+    animation: titleFade calc(1s * var(--anim-scale)) ease forwards;
 }
 
 .about-divider {
@@ -227,16 +227,16 @@ a {
     font-size: 1.15rem;
     line-height: 1.7;
     margin: 0 0 1.4rem;
-    animation: textSlideIn 1s ease forwards;
-    animation-delay: 0.1s;
+    animation: textSlideIn calc(1s * var(--anim-scale)) ease forwards;
+    animation-delay: calc(0.1s * var(--anim-scale));
 }
 
 .about-project {
     font-size: 1.15rem;
     line-height: 1.7;
     margin: 0 0 2.5rem;
-    animation: textSlideIn 1s ease forwards;
-    animation-delay: 0.2s;
+    animation: textSlideIn calc(1s * var(--anim-scale)) ease forwards;
+    animation-delay: calc(0.2s * var(--anim-scale));
 }
 
 .about-project strong {
@@ -247,8 +247,8 @@ a {
     font-size: 1.4rem;
     font-weight: 700;
     margin: 0 0 1.2rem;
-    animation: titleFade 1s ease forwards;
-    animation-delay: 0.3s;
+    animation: titleFade calc(1s * var(--anim-scale)) ease forwards;
+    animation-delay: calc(0.3s * var(--anim-scale));
 }
 
 .about-skills {
@@ -268,24 +268,24 @@ a {
     border-radius: 4px;
     font-size: 1rem;
     opacity: 0;
-    animation: skillBounceIn 0.6s ease forwards;
+    animation: skillBounceIn calc(0.6s * var(--anim-scale)) ease forwards;
     transition: all 0.3s ease;
 }
 
 .about-skills li:nth-child(1) {
-    animation-delay: 0.4s;
+    animation-delay: calc(0.4s * var(--anim-scale));
 }
 
 .about-skills li:nth-child(2) {
-    animation-delay: 0.5s;
+    animation-delay: calc(0.5s * var(--anim-scale));
 }
 
 .about-skills li:nth-child(3) {
-    animation-delay: 0.6s;
+    animation-delay: calc(0.6s * var(--anim-scale));
 }
 
 .about-skills li:nth-child(4) {
-    animation-delay: 0.7s;
+    animation-delay: calc(0.7s * var(--anim-scale));
 }
 
 /* Hover lift effect on skill tags */
@@ -377,7 +377,7 @@ img {
 }
 
 #education.section-visible .education-card {
-    animation: cardFlipIn 0.9s ease forwards;
+    animation: cardFlipIn calc(0.9s * var(--anim-scale)) ease forwards;
 }
 
 /* ---------- Training & Learning ---------- */
@@ -419,17 +419,17 @@ img {
 }
 
 #learning.section-visible .learning-card:nth-child(1) {
-    animation: learningRise 0.8s ease forwards;
+    animation: learningRise calc(0.8s * var(--anim-scale)) ease forwards;
 }
 
 #learning.section-visible .learning-card:nth-child(2) {
-    animation: learningRise 0.8s ease forwards;
-    animation-delay: 0.15s;
+    animation: learningRise calc(0.8s * var(--anim-scale)) ease forwards;
+    animation-delay: calc(0.15s * var(--anim-scale));
 }
 
 #learning.section-visible .learning-card:nth-child(3) {
-    animation: learningRise 0.8s ease forwards;
-    animation-delay: 0.3s;
+    animation: learningRise calc(0.8s * var(--anim-scale)) ease forwards;
+    animation-delay: calc(0.3s * var(--anim-scale));
 }
 
 /* ---------- Technical Skills ---------- */
@@ -465,27 +465,27 @@ img {
 }
 
 #skills.section-visible .skill-category {
-    animation: skillZoomIn 0.7s ease forwards;
+    animation: skillZoomIn calc(0.7s * var(--anim-scale)) ease forwards;
 }
 
 #skills.section-visible .skill-category:nth-child(1) {
-    animation-delay: 0s;
+    animation-delay: calc(0s * var(--anim-scale));
 }
 
 #skills.section-visible .skill-category:nth-child(2) {
-    animation-delay: 0.1s;
+    animation-delay: calc(0.1s * var(--anim-scale));
 }
 
 #skills.section-visible .skill-category:nth-child(3) {
-    animation-delay: 0.2s;
+    animation-delay: calc(0.2s * var(--anim-scale));
 }
 
 #skills.section-visible .skill-category:nth-child(4) {
-    animation-delay: 0.3s;
+    animation-delay: calc(0.3s * var(--anim-scale));
 }
 
 #skills.section-visible .skill-category:nth-child(5) {
-    animation-delay: 0.4s;
+    animation-delay: calc(0.4s * var(--anim-scale));
 }
 
 .skill-chips {
@@ -545,17 +545,17 @@ img {
 }
 
 #languages.section-visible .language-card:nth-child(1) {
-    animation: langFlipIn 0.8s ease forwards;
+    animation: langFlipIn calc(0.8s * var(--anim-scale)) ease forwards;
 }
 
 #languages.section-visible .language-card:nth-child(2) {
-    animation: langFlipIn 0.8s ease forwards;
-    animation-delay: 0.15s;
+    animation: langFlipIn calc(0.8s * var(--anim-scale)) ease forwards;
+    animation-delay: calc(0.15s * var(--anim-scale));
 }
 
 #languages.section-visible .language-card:nth-child(3) {
-    animation: langFlipIn 0.8s ease forwards;
-    animation-delay: 0.3s;
+    animation: langFlipIn calc(0.8s * var(--anim-scale)) ease forwards;
+    animation-delay: calc(0.3s * var(--anim-scale));
 }
 
 #project-section {
@@ -576,7 +576,7 @@ img {
     margin-bottom: 1rem;
     width: fit-content;
     border-bottom: 2px solid var(--main-white);
-    animation: titleFade 1s ease forwards;
+    animation: titleFade calc(1s * var(--anim-scale)) ease forwards;
 }
 
 .projects-grid {
@@ -599,7 +599,7 @@ img {
 }
 
 .project.in-view {
-    animation: cardReveal 0.9s ease forwards;
+    animation: cardReveal calc(0.9s * var(--anim-scale)) ease forwards;
 }
 
 .project.hidden {
@@ -669,7 +669,7 @@ img {
 }
 
 #show-all-button:hover>i {
-    animation: iconSlide 0.6s ease forwards;
+    animation: iconSlide calc(0.6s * var(--anim-scale)) ease forwards;
 }
 
 footer {
@@ -685,17 +685,17 @@ footer {
     padding: 4rem 2rem;
     text-align: center;
     font-size: 2.3rem;
-    animation: titleFade 1s ease forwards;
+    animation: titleFade calc(1s * var(--anim-scale)) ease forwards;
 }
 
 #contact h2 {
     font-size: 2em;
-    animation: titleFade 1s ease forwards;
+    animation: titleFade calc(1s * var(--anim-scale)) ease forwards;
 }
 
 #contact p {
-    animation: textSlideIn 1s ease forwards;
-    animation-delay: 0.1s;
+    animation: textSlideIn calc(1s * var(--anim-scale)) ease forwards;
+    animation-delay: calc(0.1s * var(--anim-scale));
 }
 
 .contact-links {
@@ -710,7 +710,7 @@ footer {
 
 .contact-links a {
     opacity: 0;
-    animation: iconBounce 1.4s ease forwards;
+    animation: iconBounce calc(1.4s * var(--anim-scale)) ease forwards;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -721,27 +721,27 @@ footer {
 
 /* Staggered entrance for contact links */
 .contact-links a:nth-child(1) {
-    animation-delay: 0.1s;
+    animation-delay: calc(0.1s * var(--anim-scale));
 }
 
 .contact-links a:nth-child(2) {
-    animation-delay: 0.2s;
+    animation-delay: calc(0.2s * var(--anim-scale));
 }
 
 .contact-links a:nth-child(3) {
-    animation-delay: 0.3s;
+    animation-delay: calc(0.3s * var(--anim-scale));
 }
 
 .contact-links a:nth-child(4) {
-    animation-delay: 0.4s;
+    animation-delay: calc(0.4s * var(--anim-scale));
 }
 
 .contact-links a:nth-child(5) {
-    animation-delay: 0.5s;
+    animation-delay: calc(0.5s * var(--anim-scale));
 }
 
 .contact-links a:nth-child(6) {
-    animation-delay: 0.6s;
+    animation-delay: calc(0.6s * var(--anim-scale));
 }
 
 /* Smooth hover effect — icon slides and link gets subtle background */
@@ -756,7 +756,7 @@ footer {
 }
 
 .contact-links a:hover i {
-    animation: iconSlide 0.4s ease forwards;
+    animation: iconSlide calc(0.4s * var(--anim-scale)) ease forwards;
 }
 
 .copywrites {
@@ -909,14 +909,19 @@ footer {
 }
 
 /* Hero: typewriter reveal of the subtitle */
-@keyframes typewriterReveal {
-    from {
-        width: 0;
-    }
+/* type -> hold -> erase -> pause, forever. The Alt copy lets :hover restart it. */
+@keyframes typewriterLoop {
+    0% { width: 0; }
+    35% { width: 22ch; }
+    75% { width: 22ch; }
+    90%, 100% { width: 0; }
+}
 
-    to {
-        width: 22ch;
-    }
+@keyframes typewriterLoopAlt {
+    0% { width: 0; }
+    35% { width: 22ch; }
+    75% { width: 22ch; }
+    90%, 100% { width: 0; }
 }
 
 @keyframes typewriterCursor {
@@ -1009,8 +1014,28 @@ footer {
     }
 }
 
+/* Light palette. Applies when the visitor chose light with the navbar button,
+   or when they have not chosen and their system prefers light. */
+:root[data-theme="light"] {
+    color-scheme: light;
+    --main-white: #181719;
+    --main-red: #c3354d;
+    --main-blue: #586d9d;
+    --main-gray: #eef2f7;
+    --main-black: #f8fafc;
+    --accent-soft: #a8283e;
+}
+
+:root[data-theme="light"] body {
+    background-color: #f8fafc;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+}
+
 @media (prefers-color-scheme: light) {
-    :root {
+    :root:not([data-theme="dark"]) {
         --main-white: #181719;
         --main-red: #c3354d;
         --main-blue: #586d9d;
@@ -1019,7 +1044,7 @@ footer {
         --accent-soft: #a8283e;
     }
 
-    body {
+    :root:not([data-theme="dark"]) body {
         background-color: #f8fafc;
     }
 }
@@ -1032,11 +1057,11 @@ footer {
     }
 
     .project:nth-child(odd) {
-        animation-delay: 0.1s;
+        animation-delay: calc(0.1s * var(--anim-scale));
     }
 
     .project:nth-child(even) {
-        animation-delay: 0.2s;
+        animation-delay: calc(0.2s * var(--anim-scale));
     }
 
     .learning-grid {
@@ -1141,5 +1166,177 @@ footer {
 @media (max-width: 560px) {
     .contact-links {
         grid-template-columns: repeat(2, auto);
+    }
+}
+
+/* ================= Round 2 additions ================= */
+
+/* Reduced motion: show the subtitle fully instead of an empty typewriter */
+@media (prefers-reduced-motion: reduce) {
+    .hero-role .typewriter {
+        width: 22ch;
+        animation: none;
+        border-right-color: transparent;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* ---- Rounded shapes ---- */
+.education-card,
+.learning-card,
+.skill-category,
+.language-card {
+    border-radius: var(--radius);
+}
+
+.skill-chips li,
+.about-skills li,
+.status-badge,
+.contact-links a,
+#show-all-button {
+    border-radius: 999px;
+}
+
+.section-divider,
+.about-divider {
+    border-radius: 3px;
+}
+
+.project>img {
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.project>p {
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+
+/* ---- Hover life (uses translate/scale so it never fights the entrance animations) ---- */
+.education-card,
+.learning-card,
+.skill-category,
+.language-card {
+    transition: translate 0.35s ease, box-shadow 0.35s ease;
+}
+
+.education-card:hover,
+.learning-card:hover,
+.skill-category:hover,
+.language-card:hover {
+    translate: 0 -6px;
+    box-shadow: inset 0 -4px 0 var(--main-red);
+}
+
+.hero-photo-frame {
+    transition: scale 0.4s ease;
+}
+
+.hero-photo-frame:hover {
+    scale: 1.08;
+}
+
+.hero-name:hover {
+    animation-duration: 1.4s;
+}
+
+/* hovering the role retypes it from the start */
+.hero-role:hover .typewriter {
+    animation-name: typewriterLoopAlt, typewriterCursor;
+}
+
+.project>p:hover,
+#show-all-button:hover {
+    color: var(--text-on-accent);
+}
+
+.about-skills li {
+    color: var(--text-on-accent);
+}
+
+/* ---- Entrance animations now wait until the section is on screen, and replay
+   every time it scrolls back into view (class toggled by scripts/main.js) ---- */
+.about-title,
+.about-text,
+.about-project,
+.about-skills-title,
+#contact,
+#contact h2,
+#contact p,
+.contact-links a,
+#project-section>.projects-heading {
+    animation-name: none;
+}
+
+.about-title,
+.about-text,
+.about-project,
+.about-skills-title,
+#contact h2,
+#contact p,
+#project-section>.projects-heading {
+    opacity: 0;
+}
+
+#about.section-visible .about-title,
+#about.section-visible .about-skills-title,
+#contact.section-visible h2,
+#project-section.section-visible>.projects-heading {
+    animation-name: titleFade;
+}
+
+#about.section-visible .about-text,
+#about.section-visible .about-project,
+#contact.section-visible p {
+    animation-name: textSlideIn;
+}
+
+#about.section-visible .about-skills li {
+    animation-name: skillBounceIn;
+}
+
+#contact.section-visible .contact-links a {
+    animation-name: iconBounce;
+}
+
+/* ---- Navbar icon button (theme toggle) ---- */
+.icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.35rem 1rem;
+    background: none;
+    border: 0;
+    color: var(--text-on-accent);
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.icon-btn i {
+    transition: transform 0.5s ease;
+}
+
+#navbar li:hover .icon-btn {
+    transform: translateY(-4px);
+}
+
+#navbar li:hover .icon-btn i {
+    transform: rotate(25deg);
+}
+
+.nav-link:focus-visible,
+.icon-btn:focus-visible {
+    outline: 2px solid var(--text-on-accent);
+    outline-offset: -4px;
+    border-radius: var(--radius);
+}
+
+@media (max-width: 768px) {
+    .icon-btn {
+        padding: 1.05rem 0.7rem;
     }
 }

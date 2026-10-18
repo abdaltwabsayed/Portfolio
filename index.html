@@ -12,13 +12,20 @@
     <meta property="og:url" content="https://abdaltwabsayed.github.io/Portfolio/" />
     <title>Abdaltwab Okasha Elsheikh — Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,700;1,200;1,400;1,500&display=swap">
     <link rel="stylesheet" href="styles/PersonalPortfolio.css">
+    <script src="scripts/theme.js"></script>
 </head>
 
 <body>
     <header>
         <nav id="navbar">
             <ul>
+                <li><button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch to light mode"
+                        title="Switch to light mode"><i class="fas fa-sun" aria-hidden="true"></i></button></li>
                 <li><a class="nav-link" href="#contact">Contact</a></li>
                 <li><a class="nav-link" href="#project-section">Work</a></li>
                 <li><a class="nav-link" href="#about">About</a></li>
@@ -38,7 +45,7 @@
         </section>
     </header>
     <main>
-        <section id="about">
+        <section id="about" class="reveal">
             <div class="about-content">
                 <h2 class="about-title">A bit about me</h2>
                 <hr class="about-divider">
@@ -168,37 +175,37 @@
                 </div>
             </div>
         </section>
-        <section id="project-section">
+        <section id="project-section" class="reveal">
             <h2 class="projects-heading">These are some of my projects</h2>
             <div class="projects-grid">
                 <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/HouseMockingDrawing.html"
                     class="project project-title" target="_blank">
-                    <img src="assets/HouseDraw.png" alt="">
+                    <img src="assets/HouseDraw.png" alt="" loading="lazy" decoding="async">
                     <p class="project-title"><span>&lt;</span> House Mocking Drawing <span>/&gt;</span></p>
                 </a>
                 <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/calculator/calculator.html"
                     class="project project-title" target="_blank">
-                    <img src="assets/Calculator.png" alt="">
+                    <img src="assets/Calculator.png" alt="" loading="lazy" decoding="async">
                     <p class="project-title"><span>&lt;</span> Calculator <span>/&gt;</span></p>
                 </a>
                 <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/rockPaperScissors/rockPaperScissors.html"
                     class="project project-title" target="_blank">
-                    <img src="assets/Rock-Paper-Scissors-Game.png" alt="">
+                    <img src="assets/Rock-Paper-Scissors-Game.png" alt="" loading="lazy" decoding="async">
                     <p class="project-title"><span>&lt;</span> Rock Paper Scissors Game <span>/&gt;</span></p>
                 </a>
                 <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/stopwatch/stopwatch.html"
                     class="project project-title" target="_blank">
-                    <img src="assets/Stopwatch.png" alt="">
+                    <img src="assets/Stopwatch.png" alt="" loading="lazy" decoding="async">
                     <p class="project-title"><span>&lt;</span> Stopwatch <span>/&gt;</span></p>
                 </a>
                 <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/timeInParis/timeInParis.html"
                     class="project project-title" target="_blank">
-                    <img src="assets/Time-In-Paris.png" alt="">
+                    <img src="assets/Time-In-Paris.png" alt="" loading="lazy" decoding="async">
                     <p class="project-title"><span>&lt;</span> Time In Paris <span>/&gt;</span></p>
                 </a>
                 <a href="https://github.com/abdaltwabsayed/My-Web-Development/tree/master/pokemon/pokemon.html"
                     class="project project-title" target="_blank">
-                    <img src="assets/Pokemon.png" alt="">
+                    <img src="assets/Pokemon.png" alt="" loading="lazy" decoding="async">
                     <p class="project-title"><span>&lt;</span> Pokemon Fetcher <span>/&gt;</span></p>
                 </a>
             </div>
@@ -207,7 +214,7 @@
         </section>
     </main>
     <footer>
-        <section id="contact">
+        <section id="contact" class="reveal">
             <h2>Let's work together...</h2>
             <p>How do you take your coffee?</p>
             <div class="contact-links">
@@ -238,43 +245,7 @@
         </section>
     </footer>
 
-    <script>
-        const projects = document.querySelectorAll('.project');
-
-        const revealProjects = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                    entry.target.classList.remove('hidden');
-                } else {
-                    entry.target.classList.remove('in-view');
-                    entry.target.classList.add('hidden');
-                }
-            });
-        }, {
-            threshold: 0.2
-        });
-
-        projects.forEach((project) => {
-            project.classList.add('hidden');
-            revealProjects.observe(project);
-        });
-
-        // Separate reveal system for the new content sections (Education, Learning,
-        // Skills, Languages). Kept independent from the .project/.hidden/.in-view
-        // logic above so that system is never touched.
-        const revealSections = document.querySelectorAll('.reveal');
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                entry.target.classList.toggle('section-visible', entry.isIntersecting);
-            });
-        }, {
-            threshold: 0.2
-        });
-
-        revealSections.forEach((section) => revealObserver.observe(section));
-    </script>
+    <script src="scripts/main.js" defer></script>
 </body>
 
 </html>
