@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Abdaltwab Okasha Elsheikh is a web developer and Computer Science Engineering student creating responsive websites and interactive web experiences."
+    />
+    <meta name="author" content="Abdaltwab Okasha Elsheikh" />
+    <meta name="theme-color" content="#F7F5F0" />
+    <link rel="icon" type="image/png" href="../assets/Be_beautiful.png" />
+    <link rel="canonical" href="https://abdaltwabsayed.github.io/Portifolio/" />
+    <meta property="og:title" content="Abdaltwab Okasha Elsheikh — Web Developer" />
+    <meta
+      property="og:description"
+      content="Responsive websites and interactive web experiences, built with care."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://abdaltwabsayed.github.io/Portifolio/assets/My_Picture.png"
+    />
+    <meta
+      property="og:url"
+      content="https://abdaltwabsayed.github.io/Portifolio/"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        const savedTheme = localStorage.getItem('portfolio-theme');
+        const systemPrefersLight = window.matchMedia(
+          '(prefers-color-scheme: light)',
+        ).matches;
+        document.documentElement.dataset.theme =
+          savedTheme || (systemPrefersLight ? 'light' : 'dark');
+      } catch {
+        document.documentElement.dataset.theme = window.matchMedia(
+          '(prefers-color-scheme: light)',
+        ).matches
+          ? 'light'
+          : 'dark';
+      }
+    </script>
+    <title>Abdaltwab Okasha Elsheikh — Web Developer</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/main.jsx"></script>
+  </body>
+</html>

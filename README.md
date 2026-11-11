@@ -1,74 +1,39 @@
-<div align="center">
-  <img src="assets/My_Picture.png" alt="Portrait of Abdaltwab Okasha Elsheikh" width="140" />
+# Abdaltwab Okasha Elsheikh — Portfolio
 
-  <h1>Abdaltwab Okasha Elsheikh</h1>
+A bilingual, responsive personal portfolio built with React, Vite, and Tailwind CSS. Its static production output is copied to the repository root so the existing root-based GitHub Pages setup can continue serving the site without a new deployment workflow.
 
-  <h3>Full-stack developer in progress · Computer Science Engineering student</h3>
-
-  <p>A bilingual personal portfolio featuring my background, skills, learning journey, and web development projects.</p>
-
-  <p><a href="https://abdaltwabsayed.github.io/Portifolio/">View the portfolio</a> ·
-  <a href="https://github.com/abdaltwabsayed">GitHub profile</a></p>
-</div>
-
----
-
-## About the site
-
-This responsive portfolio introduces me as a fifth-year Computer Science Engineering student at Fayoum University. It brings together my education, current training with the Digital Egypt Pioneers Initiative (DEPI), technical skills, and selected projects.
-
-### Highlights
-
-- Switch between English and Arabic, with the layout adapting to the selected language.
-- Toggle between dark and light themes.
-- Explore my education, training, skills, language proficiency, and project work.
-- Find links to my contact and social profiles.
-
-## Featured projects
-
-| Project | What it is |
-| --- | --- |
-| [Calculator](https://abdaltwabsayed.github.io/Calculator/) | A browser-based calculator |
-| [Rock Paper Scissors](https://github.com/abdaltwabsayed/My-Web-Development/tree/master/rockPaperScissors/rockPaperScissors.html) | A classic game built for the browser |
-| [Stopwatch](https://github.com/abdaltwabsayed/My-Web-Development/tree/master/stopwatch/stopwatch.html) | A simple browser stopwatch |
-| [World Clock](https://abdaltwabsayed.github.io/World-Clock/) | A clock for checking time around the world |
-| [Pokemon Fetcher](https://abdaltwabsayed.github.io/Pokemon-Fetcher/) | A Pokémon-themed web project |
-| [House Mocking Drawing](https://github.com/abdaltwabsayed/My-Web-Development/tree/master/HouseMockingDrawing.html) | A drawing made with web technologies |
-
-[Browse more projects](https://github.com/abdaltwabsayed/My-Web-Development/tree/master/)
-
-## Built with
-
-- HTML5
-- CSS3
-- JavaScript
-- Font Awesome and Google Fonts
-
-## Run locally
-
-This is a static site with no build step. Clone the repository and open `index.html` in a browser, or serve the project directory with a local static server.
+## Develop
 
 ```bash
-git clone https://github.com/abdaltwabsayed/Portifolio.git
-cd Portifolio
-python -m http.server 8000
+npm install
+npm run dev
 ```
 
-Then visit `http://localhost:8000`.
+## Build for GitHub Pages
+
+```bash
+npm run build
+```
+
+Vite first builds into the ignored `src/dist/` directory, then copies the production `index.html` and bundled files to the repository root. The application source remains in `src/`; the build does not clear other root files or the existing project screenshots. The relative asset base also supports the `/Portifolio/` GitHub Pages project URL.
+
+To inspect a production build locally, run `npm run preview`.
 
 ## Project structure
 
 ```text
-.
-├── assets/                 # Portrait, project previews, and logo
-├── scripts/                # Page interactions, theme, and translations
-├── styles/                 # Portfolio styles
-├── index.html              # Main portfolio page
-└── README.md
+src/
+  components/       # Navbar, hero, project cards, content sections, and footer
+  data/             # Project, service, skill, and translation content
+  App.jsx           # Page composition and language/theme state
+  index.css         # Tailwind layers, design tokens, and responsive styles
+  index.html        # Vite HTML entry
+assets/             # Existing portrait, mark, and project screenshots
+index.html          # Generated production entry for GitHub Pages
+tailwind.config.js  # Tailwind source paths and custom color tokens
+vite.config.js      # Root-relative build output for GitHub Pages
 ```
 
----
+Project descriptions and destinations use the existing portfolio information. Nahed was a team Telegram-bot project; my contribution was Login, Registration, and Assignment features implemented in Java. The Pokémon Fetcher card uses an explicitly illustrative visual rather than implying it is a screenshot.
 
-<div align="center">
-  Made with care by <a href="https://github.com/abdaltwabsayed">Abdaltwab</a>
-</div>
+Contact email, phone, and social links remain unchanged. The footer poem is preserved in Arabic.
